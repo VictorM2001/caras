@@ -1,7 +1,7 @@
 <?php
 $servername = "sql213.infinityfree.com";
 $username = "if0_37069819"; // Cambia esto si tu usuario de MySQL es diferente
-$password = "SfIdExSKPaJh2"; // Cambia esto si tu contraseña de MySQL es diferente
+$password = "QHuNrLxMX7"; // Cambia esto si tu contraseña de MySQL es diferente
 $dbname = "if0_37069819_face";
 
 // Crear la conexión
